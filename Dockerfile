@@ -11,13 +11,12 @@ LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
 
 # 2) change to root to install packages
 USER root
-
 RUN apt-get -y install htop
 RUN apt -y update
 RUN apt -y upgrade
 RUN apt -y autoremove
 RUN apt-get remove --purge nvidia*
-RUN sudo apt -y install nvidia-driver-470
+RUN DEBIAN_FRONTEND=noninteractive sudo apt -y install nvidia-driver-470
 RUN reboot
 
 
