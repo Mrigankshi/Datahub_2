@@ -13,6 +13,12 @@ LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
 USER root
 
 RUN apt-get -y install htop
+RUN apt-get -y purge nvidia*
+RUN add-apt-repository ppa:graphics-drivers/ppa
+RUN apt-get -y update
+RUN ubuntu-drivers devices
+RUN apt-get -y install nvidia-driver-460
+
 
 # 3) install packages using notebook user
 USER jovyan
