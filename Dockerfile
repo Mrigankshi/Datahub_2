@@ -13,13 +13,12 @@ LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
 USER root
 
 RUN apt-get -y install htop
-RUN apt-get -y purge nvidia*
-RUN apt -y install software-properties-common
-RUN apt-get -y update
-RUN add-apt-repository ppa:graphics-drivers/ppa
-RUN apt-get -y update
-RUN ubuntu-drivers devices
-RUN apt-get -y install nvidia-driver-460
+RUN apt -y update
+RUN apt -y upgrade
+RUN apt -y autoremove
+RUN apt-get remove --purge nvidia*
+RUN sudo apt -y install nvidia-driver-470
+RUN reboot
 
 
 # 3) install packages using notebook user
