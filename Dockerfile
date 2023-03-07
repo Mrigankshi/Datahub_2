@@ -16,7 +16,7 @@ RUN apt -y update
 RUN apt -y upgrade
 RUN apt -y autoremove
 RUN apt-get remove --purge nvidia*
-RUN DEBIAN_FRONTEND=noninteractive sudo apt -y install nvidia-driver-470
+RUN DEBIAN_FRONTEND=noninteractive sudo apt install nvidia-driver-470 -y
 RUN reboot
 
 
