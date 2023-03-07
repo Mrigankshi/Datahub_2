@@ -14,6 +14,8 @@ USER root
 
 RUN apt-get -y install htop
 RUN apt-get -y purge nvidia*
+RUN apt -y install software-properties-common
+RUN apt-get -y update
 RUN add-apt-repository ppa:graphics-drivers/ppa
 RUN apt-get -y update
 RUN ubuntu-drivers devices
